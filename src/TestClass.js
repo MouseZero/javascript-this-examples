@@ -1,4 +1,8 @@
 class TestClass {
+  constructor() {
+    this.testFunction = this.testFunction.bind(this)
+  }
+
   getString() {
     return 'from class'
   }
