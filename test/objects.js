@@ -45,4 +45,18 @@ describe('objects', () => {
     expect(arrowNestedFunc()()).to.equal('bar')
     expect(bothFunc()()).to.equal(undefined)
   })
+
+  it('when a function is called out of its object it losses its this', () => {
+    const foo = {
+      prop: 44,
+      bar: function () {
+        return this.prop
+      }
+    }
+
+    const barOutOfObject = foo.bar
+
+    expect(foo.bar()).to.equal(44)
+    expect(barOutOfObject()).to.equal(undefined)
+  })
 })
