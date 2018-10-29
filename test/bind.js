@@ -21,15 +21,13 @@ describe('bind', () => {
   function () {
     const a = {foo: 'bar'}
 
-    global.foo = 'qux'
-
     function func () {
       return this.foo
     }
 
     ;(function () {
       expect(this.foo).to.equal('bar')
-      expect(func()).to.equal('qux')
+      expect(func()).to.equal(undefined)
       expect(func.apply(a)).to.equal('bar')
     }).apply(a)
 
