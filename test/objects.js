@@ -58,5 +58,6 @@ describe('objects', () => {
 
     expect(foo.bar()).to.equal(44)
     expect(barOutOfObject()).to.equal(undefined)
+    expect(barOutOfObject.apply(foo)).to.equal(44)
   })
 })
